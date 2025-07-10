@@ -1,49 +1,134 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>ElectroKart - Products</title>
+  <meta charset="UTF-8">
+  <title>ElectroKart | Products</title>
   <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #0b0b0b;
+      color: #fff;
+    }
+
+    header {
+      background-color: #111;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 2px solid #ff6a00;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      color: #ff8800;
+    }
+
+    .products-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      padding: 40px;
+    }
+
+    .product-card {
+      background-color: #1a1a1a;
+      border: 2px solid #ff8800;
+      border-radius: 15px;
+      overflow: hidden;
+      text-align: center;
+      padding: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #ff8800;
+    }
+
+    .product-card img {
+      max-width: 100%;
+      height: 180px;
+      object-fit: contain;
+      border-bottom: 1px solid #333;
+      margin-bottom: 15px;
+    }
+
+    .product-card h3 {
+      margin: 10px 0;
+      font-size: 1.2em;
+    }
+
+    .product-card p {
+      font-size: 1em;
+      color: #ffddbb;
+      margin-bottom: 15px;
+    }
+
+    .product-card button {
+      background-color: #ff6a00;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      font-size: 1em;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .product-card button:hover {
+      background-color: #ff8800;
+    }
+
+    footer {
+      background-color: #111;
+      color: #888;
+      text-align: center;
+      padding: 20px;
+      margin-top: 30px;
+      font-size: 0.9em;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Navigation -->
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="products.html">Products</a>
-    <a href="cart.html">Cart</a>
-    <a href="contact.html">Contact</a>
-    <a href="login.html">Login</a>
-  </nav>
+  <header>
+    <h1>Our Products</h1>
+  </header>
 
-  <!-- Products Table -->
-  <h1>Our Products</h1>
+  <section class="products-container">
+    <!-- Product 1 -->
+    <div class="product-card">
+      <img src="images/mg995.jpg" alt="MG995 Servo Motor">
+      <h3>MG995 Servo Motor</h3>
+      <p>₹250</p>
+      <button>Add to Cart</button>
+    </div>
 
-  <table border="1">
-    <tr>
-      <th>Image</th>
-      <th>Component Name</th>
-      <th>Price</th>
-      <th>Add to Cart</th>
-    </tr>
-    <tr>
-      <td><img src="images/mg995.jpg" width="100" alt="MG995 Servo"></td>
-      <td>MG995 Servo Motor</td>
-      <td>₹180</td>
-      <td><button>Add</button></td>
-    </tr>
-    <tr>
-      <td><img src="images/nodemcu.jpg" width="100" alt="NodeMCU"></td>
-      <td>NodeMCU ESP8266</td>
-      <td>₹150</td>
-      <td><button>Add</button></td>
-    </tr>
-    <tr>
-      <td><img src="images/resistor.jpg" width="100" alt="Resistor"></td>
-      <td>1kΩ Resistor</td>
-      <td>₹2</td>
-      <td><button>Add</button></td>
-    </tr>
-  </table>
+    <!-- Product 2 -->
+    <div class="product-card">
+      <img src="images/nodemcu.jpg" alt="NodeMCU ESP8266">
+      <h3>NodeMCU ESP8266</h3>
+      <p>₹300</p>
+      <button>Add to Cart</button>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="product-card">
+      <img src="images/resistor.jpg" alt="Resistor 10kΩ Pack">
+      <h3>Resistor 10kΩ (100 pcs)</h3>
+      <p>₹80</p>
+      <button>Add to Cart</button>
+    </div>
+
+    <!-- You can add more products similarly -->
+  </section>
+
+  <footer>
+    &copy; 2025 ElectroKart | All rights reserved.
+  </footer>
 
 </body>
 </html>
