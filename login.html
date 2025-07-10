@@ -1,49 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>ElectroKart - Login</title>
-  <link rel="stylesheet" href="css/style.css">
-  <script>
-    function validateLogin() {
-      let email = document.getElementById("loginEmail").value.trim();
-      let password = document.getElementById("loginPassword").value;
-
-      if (!email.includes("@") || email === "") {
-        alert("Enter a valid email.");
-        return false;
-      }
-      if (password.length < 6) {
-        alert("Password must be at least 6 characters.");
-        return false;
-      }
-
-      alert("Login successful!");
-      return true;
+  <meta charset="UTF-8">
+  <title>Login | ElectroKart</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: #0a0a0a;
+      color: white;
     }
-  </script>
+
+    .login-box {
+      max-width: 400px;
+      margin: 100px auto;
+      padding: 40px;
+      background-color: #1a1a1a;
+      border-radius: 20px;
+      box-shadow: 0 0 20px #ff6a00;
+      text-align: center;
+    }
+
+    h2 {
+      color: #ff8800;
+      margin-bottom: 30px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 2px solid #ff8800;
+      border-radius: 10px;
+      background: #000;
+      color: white;
+      font-size: 1em;
+    }
+
+    input:focus {
+      outline: none;
+      box-shadow: 0 0 10px #ff8800;
+    }
+
+    button {
+      background-color: #ff6a00;
+      border: none;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 25px;
+      font-size: 1em;
+      margin-top: 15px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #ff8800;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Navigation -->
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="products.html">Products</a>
-    <a href="cart.html">Cart</a>
-    <a href="contact.html">Contact</a>
-    <a href="login.html">Login</a>
-  </nav>
-
-  <h1>Login to ElectroKart</h1>
-
-  <form onsubmit="return validateLogin()">
-    <label>Email:</label>
-    <input type="email" id="loginEmail" required>
-
-    <label>Password:</label>
-    <input type="password" id="loginPassword" required>
-
-    <button type="submit">Login</button>
-  </form>
+  <div class="login-box">
+    <h2>Login to ElectroKart</h2>
+    <form>
+      <input type="email" placeholder="Email" required>
+      <input type="password" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+  </div>
 
 </body>
 </html>
