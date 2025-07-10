@@ -1,51 +1,159 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>ElectroKart - Cart</title>
-  <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <title>Cart | ElectroKart</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: #0a0a0a;
+      color: #fff;
+    }
+
+    header {
+      background-color: #111;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #ff6a00;
+    }
+
+    header h1 {
+      color: #ff8800;
+      margin: 0;
+    }
+
+    #cartIcon {
+      font-size: 1.2em;
+      background: #222;
+      padding: 10px 20px;
+      border-radius: 20px;
+      color: #fff;
+      box-shadow: 0 0 10px #ff6a00;
+      cursor: default;
+    }
+
+    .cart-container {
+      max-width: 800px;
+      margin: 40px auto;
+      background-color: #1a1a1a;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px #ff6a00;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 30px;
+    }
+
+    th, td {
+      padding: 15px;
+      text-align: center;
+      border-bottom: 1px solid #444;
+    }
+
+    th {
+      color: #ff8800;
+      font-size: 1.1em;
+    }
+
+    td img {
+      width: 60px;
+      height: auto;
+    }
+
+    .remove-btn {
+      background: #ff3c00;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 10px;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .remove-btn:hover {
+      background: #ff0000;
+    }
+
+    .total {
+      text-align: right;
+      font-size: 1.3em;
+      color: #00ff99;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #888;
+      background: #111;
+      margin-top: 50px;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Navigation -->
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="products.html">Products</a>
-    <a href="cart.html">Cart</a>
-    <a href="contact.html">Contact</a>
-    <a href="login.html">Login</a>
-  </nav>
+  <header>
+    <h1>ElectroKart</h1>
+    <div id="cartIcon">🛒 Cart (<span id="cartCount">2</span>)</div>
+  </header>
 
-  <h1>Your Shopping Cart</h1>
-
-  <table border="1">
-    <tr>
-      <th>Component</th>
-      <th>Price</th>
-      <th>Quantity</th>
-      <th>Total</th>
-      <th>Remove</th>
-    </tr>
-    <tr>
-      <td>MG995 Servo Motor</td>
-      <td>₹180</td>
-      <td><input type="number" value="1" min="1"></td>
-      <td>₹180</td>
-      <td><button>Remove</button></td>
-    </tr>
-    <tr>
-      <td>NodeMCU ESP8266</td>
-      <td>₹150</td>
-      <td><input type="number" value="2" min="1"></td>
-      <td>₹300</td>
-      <td><button>Remove</button></td>
-    </tr>
-  </table>
-
-  <h2 style="text-align:right; margin-right:100px;">Grand Total: ₹480</h2>
-
-  <div style="text-align:right; margin-right:100px;">
-    <button>Proceed to Checkout</button>
+  <div class="cart-container">
+    <h2>Your Cart</h2>
+    <table id="cartTable">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Remove</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><img src="images/resistor.jpg" alt="Resistor"></td>
+          <td>Resistor Pack</td>
+          <td class="price">₹20</td>
+          <td><button class="remove-btn" onclick="removeItem(this, 20)">Remove</button></td>
+        </tr>
+        <tr>
+          <td><img src="images/mg995.jpg" alt="Servo"></td>
+          <td>MG995 Servo Motor</td>
+          <td class="price">₹120</td>
+          <td><button class="remove-btn" onclick="removeItem(this, 120)">Remove</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="total">Total: ₹<span id="totalAmount">140</span></div>
   </div>
+
+  <footer>
+    &copy; 2025 ElectroKart. Innovation delivered to your door.
+  </footer>
+
+  <script>
+    let cartCount = 2;
+    let total = 140;
+
+    function removeItem(btn, price) {
+      const row = btn.closest('tr');
+      row.remove();
+      cartCount--;
+      total -= price;
+
+      document.getElementById("cartCount").innerText = cartCount;
+      document.getElementById("totalAmount").innerText = total;
+
+      if (cartCount === 0) {
+        document.getElementById("cartTable").innerHTML = "<tr><td colspan='4'>🛒 Your cart is empty.</td></tr>";
+      }
+    }
+  </script>
 
 </body>
 </html>
