@@ -1,65 +1,105 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>ElectroKart - Register</title>
-  <link rel="stylesheet" href="css/style.css">
-  <script>
-    function validateRegister() {
-      let name = document.getElementById("regName").value.trim();
-      let email = document.getElementById("regEmail").value.trim();
-      let pass = document.getElementById("regPassword").value;
-      let confirm = document.getElementById("confirmPassword").value;
-
-      if (name === "") {
-        alert("Enter your name.");
-        return false;
-      }
-      if (!email.includes("@") || email === "") {
-        alert("Enter a valid email.");
-        return false;
-      }
-      if (pass.length < 6) {
-        alert("Password must be at least 6 characters.");
-        return false;
-      }
-      if (pass !== confirm) {
-        alert("Passwords do not match.");
-        return false;
-      }
-
-      alert("Registration successful!");
-      return true;
+  <meta charset="UTF-8">
+  <title>Register | ElectroKart</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: #0a0a0a;
+      color: white;
     }
-  </script>
+
+    .register-box {
+      max-width: 500px;
+      margin: 80px auto;
+      padding: 40px;
+      background-color: #1a1a1a;
+      border-radius: 20px;
+      box-shadow: 0 0 20px #ff6a00;
+    }
+
+    h2 {
+      color: #ff8800;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 2px solid #ff8800;
+      border-radius: 10px;
+      background: #000;
+      color: white;
+      font-size: 1em;
+    }
+
+    .password-toggle {
+      margin-top: -8px;
+      text-align: right;
+      font-size: 0.85em;
+      color: #ff8800;
+      cursor: pointer;
+    }
+
+    button {
+      background-color: #ff6a00;
+      border: none;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 25px;
+      font-size: 1em;
+      margin-top: 20px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #ff8800;
+    }
+
+    #successMsg {
+      margin-top: 20px;
+      background: #0f0;
+      color: #000;
+      text-align: center;
+      padding: 10px;
+      border-radius: 10px;
+      display: none;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Navigation -->
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="products.html">Products</a>
-    <a href="cart.html">Cart</a>
-    <a href="contact.html">Contact</a>
-    <a href="login.html">Login</a>
-  </nav>
+  <div class="register-box">
+    <h2>Create Your Account</h2>
+    <form id="registerForm">
+      <input type="text" placeholder="Full Name" required>
+      <input type="email" placeholder="Email" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <div class="password-toggle" onclick="togglePassword()">👁 Show Password</div>
+      <input type="password" placeholder="Confirm Password" required>
+      <button type="submit">Register</button>
+    </form>
+    <div id="successMsg">✅ Registered Successfully!</div>
+  </div>
 
-  <h1>Create Your ElectroKart Account</h1>
+  <script>
+    function togglePassword() {
+      const passField = document.getElementById('password');
+      passField.type = (passField.type === 'password') ? 'text' : 'password';
+    }
 
-  <form onsubmit="return validateRegister()">
-    <label>Full Name:</label>
-    <input type="text" id="regName" required>
-
-    <label>Email:</label>
-    <input type="email" id="regEmail" required>
-
-    <label>Password:</label>
-    <input type="password" id="regPassword" required>
-
-    <label>Confirm Password:</label>
-    <input type="password" id="confirmPassword" required>
-
-    <button type="submit">Register</button>
-  </form>
+    document.getElementById("registerForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      document.getElementById("successMsg").style.display = "block";
+      this.reset();
+    });
+  </script>
 
 </body>
 </html>
