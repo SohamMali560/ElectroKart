@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ElectroKart - Contact Us</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/validate.js"></script>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="cart.html">Cart</a>
+    <a href="contact.html">Contact</a>
+    <a href="login.html">Login</a>
+  </nav>
+
+  <h1>Contact & Inquiry Form</h1>
+
+  <form onsubmit="return validateForm()" enctype="multipart/form-data">
+    <label>Full Name:</label><br>
+    <input type="text" id="name"><br><br>
+
+    <label>Email:</label><br>
+    <input type="email" id="email"><br><br>
+
+    <label>Password:</label><br>
+    <input type="password" id="password"><br><br>
+
+    <label>Gender:</label><br>
+    <input type="radio" name="gender" value="male"> Male
+    <input type="radio" name="gender" value="female"> Female
+    <input type="radio" name="gender" value="other"> Other<br><br>
+
+    <label>Preferred Components:</label><br>
+    <input type="checkbox" name="components" value="resistors"> Resistors
+    <input type="checkbox" name="components" value="ic"> ICs
+    <input type="checkbox" name="components" value="modules"> Modules<br><br>
+
+    <label>Category:</label><br>
+    <select id="category">
+      <option value="">--Select--</option>
+      <option value="student">Student</option>
+      <option value="hobbyist">Hobbyist</option>
+      <option value="manufacturer">Manufacturer</option>
+    </select><br><br>
+
+    <label>Preferred Delivery Date:</label><br>
+    <input type="date" id="date"><br><br>
+
+    <label>Upload Circuit Diagram:</label><br>
+    <input type="file" id="file"><br><br>
+
+    <label>Message:</label><br>
+    <textarea id="message" rows="5" cols="40"></textarea><br><br>
+
+    <button type="submit">Submit</button>
+  </form>
+
+</body>
+</html>

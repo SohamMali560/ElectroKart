@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ElectroKart - Cart</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="cart.html">Cart</a>
+    <a href="contact.html">Contact</a>
+    <a href="login.html">Login</a>
+  </nav>
+
+  <h1>Your Shopping Cart</h1>
+
+  <table border="1">
+    <tr>
+      <th>Component</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Total</th>
+      <th>Remove</th>
+    </tr>
+    <tr>
+      <td>MG995 Servo Motor</td>
+      <td>₹180</td>
+      <td><input type="number" value="1" min="1"></td>
+      <td>₹180</td>
+      <td><button>Remove</button></td>
+    </tr>
+    <tr>
+      <td>NodeMCU ESP8266</td>
+      <td>₹150</td>
+      <td><input type="number" value="2" min="1"></td>
+      <td>₹300</td>
+      <td><button>Remove</button></td>
+    </tr>
+  </table>
+
+  <h2 style="text-align:right; margin-right:100px;">Grand Total: ₹480</h2>
+
+  <div style="text-align:right; margin-right:100px;">
+    <button>Proceed to Checkout</button>
+  </div>
+
+</body>
+</html>

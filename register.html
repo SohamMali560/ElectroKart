@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ElectroKart - Register</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    function validateRegister() {
+      let name = document.getElementById("regName").value.trim();
+      let email = document.getElementById("regEmail").value.trim();
+      let pass = document.getElementById("regPassword").value;
+      let confirm = document.getElementById("confirmPassword").value;
+
+      if (name === "") {
+        alert("Enter your name.");
+        return false;
+      }
+      if (!email.includes("@") || email === "") {
+        alert("Enter a valid email.");
+        return false;
+      }
+      if (pass.length < 6) {
+        alert("Password must be at least 6 characters.");
+        return false;
+      }
+      if (pass !== confirm) {
+        alert("Passwords do not match.");
+        return false;
+      }
+
+      alert("Registration successful!");
+      return true;
+    }
+  </script>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="cart.html">Cart</a>
+    <a href="contact.html">Contact</a>
+    <a href="login.html">Login</a>
+  </nav>
+
+  <h1>Create Your ElectroKart Account</h1>
+
+  <form onsubmit="return validateRegister()">
+    <label>Full Name:</label>
+    <input type="text" id="regName" required>
+
+    <label>Email:</label>
+    <input type="email" id="regEmail" required>
+
+    <label>Password:</label>
+    <input type="password" id="regPassword" required>
+
+    <label>Confirm Password:</label>
+    <input type="password" id="confirmPassword" required>
+
+    <button type="submit">Register</button>
+  </form>
+
+</body>
+</html>
